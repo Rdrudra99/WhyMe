@@ -1,22 +1,21 @@
 'use client'
 
-import * as React from "react"
-import { useState, useCallback, useRef, useEffect } from "react"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
-import { Textarea } from "@/components/ui/textarea"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
-import { Globe, ClipboardCopy, Pencil, AlertCircle } from 'lucide-react'
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Textarea } from "@/components/ui/textarea"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import template from "@/config/template"
+import { toast } from "@/hooks/use-toast"
+import { AnimatePresence, motion } from 'framer-motion'
+import { AlertCircle, ClipboardCopy, Globe, Pencil } from 'lucide-react'
 import dynamic from 'next/dynamic'
+import { useCallback, useState } from "react"
 import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { motion, AnimatePresence } from 'framer-motion'
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-import { toast } from "@/hooks/use-toast"
-import { ScrollArea } from "@/components/ui/scroll-area"
 
 const MDEditor = dynamic(
  () => import("@uiw/react-md-editor").then((mod) => mod.default),
@@ -334,7 +333,7 @@ export default function AIToolSelector() {
          <AlertCircle className="w-16 h-16 text-muted-foreground mb-4" />
          <h2 className="text-2xl font-bold text-foreground mb-2">No Content Generated</h2>
          <p className="text-muted-foreground text-center">
-          Select a use case and click "Write for me" to generate content.
+          Select a use case and click Write for me to generate content.
          </p>
         </div>
        </motion.div>
