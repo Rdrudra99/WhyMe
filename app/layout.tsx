@@ -1,8 +1,8 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
-import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
 import { AppSidebar } from '@/components/app-sidebar'
 import { ConditionalSidebarTrigger } from '@/components/conditional-sidebar-trigger'
+import { SidebarProvider } from '@/components/ui/sidebar'
+import { Inter } from 'next/font/google'
+import './globals.css'
 
 
 const inter = Inter({ subsets: ['latin'] })
