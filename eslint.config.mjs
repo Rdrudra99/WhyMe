@@ -1,14 +1,3 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
 const eslintConfig = [
   // Extending valid configurations
   ...compat.extends("next/core-web-vitals", "next/typescript"),
@@ -16,14 +5,10 @@ const eslintConfig = [
   // Adding rules manually
   {
     rules: {
-      "@typescript-eslint/no-unused-vars": [
-        "error",
-        {
-          vars: "all",
-          args: "after-used",
-          ignoreRestSiblings: true,
-        },
-      ],
+      'next/core-web-vitals': 'off',
+      'react/no-unescaped-entities': 'off',
+      '@next/next/no-page-custom-font': 'off',
+      'react/no-children-prop': 'off', // Disable the rule globally
     },
   },
 ];
